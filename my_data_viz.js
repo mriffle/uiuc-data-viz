@@ -26,6 +26,18 @@ const load_slide = function({ pop_medium, ratios, svg, width, height }) {
     const year = slide_data[currentSlide].year;
     updateYear({ year, pop_medium, ratios, svg, width, height });
     update_rect_cover({ svg, height, width });
+
+    if(currentSlide == 0) {
+        d3.select("#button-back").attr('disabled', true);
+    } else {
+        d3.select("#button-back").attr('disabled', null);
+    }
+
+    if(currentSlide >= slide_data.length - 1) {
+        d3.select("#button-next").attr('disabled', true);
+    } else {
+        d3.select("#button-next").attr('disabled', null);
+    }
 }
 
 const update_rect_cover = function({ svg, height, width } ) {
