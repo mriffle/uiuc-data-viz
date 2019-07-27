@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>Japan: Coming Population Crisis</title>
+
+    <meta charset="utf-8">
+
+    <style type="text/css">
+
+    .pop-bar {
+        fill:#1e90ff;
+    }
+
+    .cover-rect {
+        fill:#ffffff;
+        opacity:0.75;
+    }
+
+    .ratio-bar {
+        fill:#ff0000;
+        opacity:0.7;
+    }
+
+
+    .high-line {
+        fill: none;
+        stroke: #1e90ff;
+        stroke-width: 2;
+        stroke-dasharray:2;
+        opacity:0.7;
+    }
+
+    .medium-line {
+        fill: none;
+        stroke: #1e90ff;
+        stroke-width: 3;
+    }
+
+    .low-line {
+        fill: none;
+        stroke: #1e90ff;
+        stroke-width: 2;
+        stroke-dasharray:5;
+        opacity:0.7;
+    }    
+
+    .ratio-line-medium {
+        fill: none;
+        stroke: #ff0000;
+        stroke-width: 2;
+        opacity:0.7;
+    } 
+
+    .ratio-line-high {
+        fill: none;
+        stroke: #ff0000;
+        stroke-width: 2;
+        stroke-dasharray:2;
+        opacity:0.4;
+    } 
+
+    .ratio-line-low {
+        fill: none;
+        stroke: #ff0000;
+        stroke-width: 2;
+        stroke-dasharray:5;
+        opacity:0.4;
+    } 
+
+    .overlay {
+    fill: none;
+    pointer-events: all;
+    }
+
+    /* Style the dots by assigning a fill and stroke */
+    .dot {
+        fill: #1e90ff;
+        stroke: #fff;
+        opacity:0.6;
+    }
+
+    .moused-over-dot {
+        fill: orange;
+        stroke: #fff;
+        opacity:0.8;
+    }
+    
+    .year-indicator {
+        fill: orange;
+        stroke: #fff;
+        opacity:0.4;
+    }
+
+    .dot-ratio {
+        fill: #ff0000;
+        stroke: #fff;
+        opacity:0.4;
+    }
+    
+    .focus circle {
+    fill: none;
+    stroke: #ff0000;
+    }
+
+    .axis { font: 14px sans-serif; }
+    .axis-label {
+        font: 14px sans-serif;
+        font-weight: bold;
+    }
+
+    .axis-label-small {
+        font: 11px sans-serif;
+    }
+
+    .legend-text{
+        font: 12px sans-serif;
+    }
+
+    /* legend styles */
+    .legend-border {
+        stroke: #000000;
+        stroke-width:1px;
+        fill-opacity: 0;
+    }
+    
+    .slide-show-title {
+        font-size:40px;
+        opacity:0.8;
+    }
+
+    #viz-anno {
+        margin-top:15px;
+        font-size:14pt;
+    }
+
+    .class-button {
+        font-size:14pt;
+    }
+
+    .slide-show-title {
+        margin-bottom:10px;
+    }
+
+    /* for my tooltips */
+    .population-tooltip {	
+        position: absolute;			
+        text-align: center;			
+        width: 175px;					
+        height: 100px;					
+        padding: 2px;				
+        font: 12px sans-serif;		
+        background: #ffffff;	
+        border: 1px;
+        border-style: solid;	
+        border-radius: 8px;			
+        pointer-events: none;
+        opacity: 0;
+    }
+
+    /* for my tooltips */
+   .ratio-tooltip {	
+        position: absolute;			
+        text-align: center;			
+        width: 125px;					
+        height: 100px;					
+        padding: 2px;				
+        font: 12px sans-serif;		
+        background: #ffffff;	
+        border: 1px;
+        border-style: solid;	
+        border-radius: 8px;			
+        pointer-events: none;
+        opacity: 0;
+    }
+
+
+
+    </style>
+</head>
+
+<!-- Body tag is where we will append our SVG and SVG objects-->
+<body>
+
+<h1 class="slide-show-title">Japan: The coming population crisis.</h1>
+
+<div id="viz-bottom-container">
+
+        <div id="viz-nav">
+                <button class="nav-button" id="button-back">Back</button>
+                <button class="nav-button" id="button-next">Next</button>
+        </div>
+    
+        <div id="viz-anno" style="font-weight:bold;">Viz annotation goes here.</div>
+    </div>
+
+<div id="viz-container" style="height:620px;;"></div>
+
+<div id="viz-info" style="font-size:10pt;margin-left:20px;">Data from http://www.ipss.go.jp/pp-zenkoku/e/zenkoku_e2017/pp_zenkoku2017e.asp. Dependency ratio is the ratio of dependents (retirees and children) to working age people.</div>
+
+<div class="population-tooltip"></div>
+<div class="ratio-tooltip"></div>
+
+</body>
+
+<!-- Load in the d3 library -->
+<script src="d3.min.js"></script>
+<script src="my_data_viz.js"></script>
