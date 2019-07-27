@@ -373,8 +373,8 @@ const getHTMLForPopulationToolTip = function(d) {
     html += "</tr>";
 
     html += "<tr>";
-    html += "<td>Ages 0-14:</td>";
-    html += "<td>" + numberWithCommas(d['-14'] * 1000) + "</td>";
+    html += "<td>Ages 65+:</td>";
+    html += "<td>" + numberWithCommas(d['65-'] * 1000) + "</td>";
     html += "</tr>";
 
     html += "<tr>";
@@ -383,8 +383,8 @@ const getHTMLForPopulationToolTip = function(d) {
     html += "</tr>";
 
     html += "<tr>";
-    html += "<td>Ages 65+:</td>";
-    html += "<td>" + numberWithCommas(d['65-'] * 1000) + "</td>";
+    html += "<td>Ages 0-14:</td>";
+    html += "<td>" + numberWithCommas(d['-14'] * 1000) + "</td>";
     html += "</tr>";
 
     html += "</table>";
